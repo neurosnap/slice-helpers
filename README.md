@@ -1,24 +1,28 @@
-# slice-helpers
+# slice-helpers [![Build Status](https://travis-ci.org/neurosnap/slice-helpers.svg?branch=master)](https://travis-ci.org/neurosnap/slice-helpers)
 
-Slice helpers for common reducer types.
+[redux-starter-kit](https://github.com/reduxjs/redux-starter-kit) `createSlice`
+helpers for common reducer types.
 
 My philosophy when building a redux app is to have fat effects, skinny reducers.
-Most of the logic of the app should live inside off effects (thunks, sagas)
+Most of the logic of the app should live inside of effects (e.g. thunks, sagas)
 because it is a central location to manage business rules. When reducers start
 listening to actions outside of their own domain, it becomes difficult to
-understand what happens when an action gets dispatched. When we think of
-reducers as simple storage containers that do not contain any meaningful
-business logic, a set of very common reducers emerge: maps, assigns, and
-loaders. These three reducer types handle 90% of my reducers in any given
-react/redux app.
+understand what happens when an action gets dispatched. Instead of going to one
+function to see the coordinated changes of our state, we now have to grep and
+find every reference to that action type and then read each file to observe what
+is happening. When we think of reducers as simple storage containers that do not
+contain any meaningful business logic, a set of very common reducers emerge:
+map, assign, and loader. These three reducer types handle 90% of my reducers
+in any given react/redux app.
 
-This library created those reducer types for you so we can focus on business
+This library created those reducer types so we can focus on business
 logic instead of reducer boilerplate.
 
 ## Features
 
-- Built on top of [redux-starter-kit](https://github.com/reduxjs/redux-starter-kit) `createSlice`
-- Dramatically reduce boilerplate for action/reducer creation
+- Built on top of redux-starter-kit `createSlice`
+- Dramatically reduces boilerplate for action/reducer creation
+- Simply reducers with a set of common operations
 
 ## Requirements
 
