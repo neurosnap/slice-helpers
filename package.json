@@ -1,0 +1,63 @@
+{
+  "name": "slice-helpers",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "npmClient": "yarn",
+  "license": "MIT",
+  "author": "Eric Bower",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neurosnap/slice-helpers.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc --noEmit && yarn lint && yarn tc && jest",
+    "lint": "tslint -p ./tsconfig.json",
+    "prepublish": "yarn build",
+    "start": "ts-node --log-error index.ts",
+    "tc": "typings-checker --allow-expect-error --project tsconfig.json type-tests.ts",
+    "prettier-js": "prettier --write *.ts",
+    "prettier-md": "prettier --config prettier.md.js --write *.md",
+    "format": "yarn prettier-js && yarn prettier-md"
+  },
+  "peerDependencies": {
+    "redux-starter-kit": "^1.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/deep-freeze-strict": "^1.1.0",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "deep-freeze-strict": "^1.1.1",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.13.7",
+    "redux-starter-kit": "^1.0.0",
+    "redux": "^4.0.4",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tslint-config-airbnb": "^5.8.0",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-no-circular-imports": "^0.7.0",
+    "tslint": "^5.9.1",
+    "typescript": "^3.6.4",
+    "typings-checker": "^2.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{md}": [
+      "prettier --config prettier.md.js --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
